@@ -21,9 +21,6 @@ import static com.example.guchen.revdo2linux.MainActivity.serverIP;
 import static com.example.guchen.revdo2linux.SkillWeatherService.timer;
 
 public class SkillActivity extends AppCompatActivity {
-    private static final String[] strs = new String[]{
-            "显示天气", "车辆跟踪", "语音消息", "自动挂断", "语音拨号"
-    };
     private ListView mListView;
 
     @Override
@@ -31,12 +28,12 @@ public class SkillActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_skill);
 
-        final SharedPreferences.Editor edit = mSharedPreferences.edit();
-
         mListView = (ListView) findViewById(R.id.listView);
-        mListView.setAdapter(new ArrayAdapter<String>(this,
-                //    android.R.layout.simple_list_item_1, strs));
-                android.R.layout.simple_list_item_checked, strs));
+
+        SkillAdapter myadapter=new SkillAdapter(this);
+        mListView.setAdapter(myadapter);
+
+        /*
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
@@ -98,15 +95,7 @@ public class SkillActivity extends AppCompatActivity {
 
             }
         });
-        mListView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
-
-        //选中第一行和第三行
-        boolean weatherEnable= mSharedPreferences.getBoolean("weatherEnable",false);
-        if(weatherEnable==true)
-        mListView.setItemChecked(0,true);
-        boolean smsReadEnable= mSharedPreferences.getBoolean("smsReadEnable",false);
-        if(smsReadEnable==true)
-            mListView.setItemChecked(2,true);
+        */
 
     }
 }

@@ -1,9 +1,12 @@
 package com.example.guchen.revdo2linux;
 
+import android.app.ProgressDialog;
+import android.os.SystemClock;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
@@ -29,6 +32,7 @@ public class SkillInfoActivity extends AppCompatActivity {
         webView.loadUrl("http://revdoskill.bjdn.openstorage.cn/test01/"+name+".html");
         //webView.loadUrl("http://revdoskill.bjdn.openstorage.cn/test01/语音拨号.html");
         //覆盖WebView默认使用第三方或系统默认浏览器打开网页的行为，使网页用WebView打开
+        webView.getSettings().setCacheMode(WebSettings.LOAD_NO_CACHE); //不使用缓存：
         webView.setWebViewClient(new WebViewClient(){
             @Override
             public boolean  shouldOverrideUrlLoading(WebView view, String url) {
@@ -38,7 +42,6 @@ public class SkillInfoActivity extends AppCompatActivity {
                 return true;
             }
         });
-
     }
 
     @Override
