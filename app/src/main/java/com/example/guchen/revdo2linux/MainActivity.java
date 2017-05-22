@@ -11,7 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.example.guchen.revdo2linux.BaiduNavi.BNDemoMainActivity;
+import com.example.guchen.revdo2linux.AmapNavi.MapActivity;
 
 public class MainActivity extends AppCompatActivity {
     public static SharedPreferences mSharedPreferences=null;
@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent();
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 //intent.setClass(MainActivity.this, BaiduNaviActivity.class);
-                intent.setClass(MainActivity.this, BNDemoMainActivity.class);
+                intent.setClass(MainActivity.this, MapActivity.class);
                 MainActivity.this.startActivity(intent);
             }
         });
